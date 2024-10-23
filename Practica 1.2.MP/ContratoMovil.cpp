@@ -49,7 +49,7 @@ float ContratoMovil::factura() const {
 ostream& operator<<(ostream& s, const ContratoMovil& c) {
 	const char* meses[] = { "ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic" };
 
-	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<< (c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getNacionalidad() << " " << c.getPrecioMinuto() << " - " << c.factura() << "€";
+	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<< (c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getNacionalidad() << " " << c.getPrecioMinuto() << " - " << c.factura() << "$";
 
 	return s;
 }

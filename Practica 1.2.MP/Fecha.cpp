@@ -2,27 +2,7 @@
 
 // Constructor con parámetros
 Fecha::Fecha(const int day, const int month, const int year) {
-    int diasEnMes[] = { 31, (bisiesto() ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    if (month > 0 && month < 13) {
-        mes = month;
-    }
-    else if (month < 1) {
-        mes = 1;
-    }
-    else {
-        mes = 12;
-    }
-
-    if (day > 0 && day < diasEnMes[mes - 1] + 1) {
-        dia = day;
-    }
-    else if (day < 1) {
-        dia = 1;
-    }
-    else {
-        dia = diasEnMes[mes - 1];
-    }
-    anio = year;
+    this->setFecha(day, month, year); //el cogido es el mismo que el del metodo setFecha
 }
 
 // Constructor por defecto
@@ -51,27 +31,37 @@ bool Fecha::bisiesto() const {
 
 // Método para establecer la fecha
 void Fecha::setFecha(const int day, const int month, const int year) {
-    int diasEnMes[] = { 31, (bisiesto() ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    if (month > 0 && month < 13) {
-        mes = month;
-    }
-    else if (month < 1) {
-        mes = 1;
-    }
-    else {
-        mes = 12;
+    int dmax, diaMes[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };// array del numero de dias de cada mes
+
+    this->anio = year; //VIP debo asignar año para que al llamar a bisiesto() tenga el año bien
+
+    if (this->bisiesto()) {
+        diaMes[2] = 29; //febrero tiene 29 dias si es bisiesto
     }
 
-    if (day > 0 && day < diasEnMes[mes - 1] + 1) {
-        dia = day;
+    /// MES
+    if (month < 1) {
+        this->mes = 1; // Si el mes es menor que 1, ponemos enero
     }
-    else if (day < 1) {
-        dia = 1;
+    else if (month > 12) {
+        this->mes = 12; // Si el mes es mayor que 12, será diciembre
     }
     else {
-        dia = diasEnMes[mes - 1];
+        this->mes = month;
     }
-    anio = year;
+
+    dmax = diaMes[this->mes]; //miramos el dia maximo que tiene ese mes
+
+    /// DIA
+    if (day > dmax) {
+        this->dia = dmax;// Si el dia es mayor que el que se el máximo, se le asigna el máximo
+    }
+    else if (day < 1) {
+        this->dia = 1; //si es menor que 1, se pone a 1
+    }
+    else {
+        this->dia = dia;
+    }
 }
 
 // Operador de asignación

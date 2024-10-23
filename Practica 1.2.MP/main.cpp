@@ -8,6 +8,7 @@
 #include "ContratoMovil.h" // definición de la clase ContratoMovil
 #include <clocale>
 
+
 using namespace std;
 
 int main(int argc, char* argv[]) {

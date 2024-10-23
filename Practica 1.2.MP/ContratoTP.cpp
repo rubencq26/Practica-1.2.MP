@@ -25,13 +25,13 @@ ostream& operator<<(ostream& s, const ContratoTP& c) {
 	else {
 		excesoMin = abs(excesoMin) * c.getPrecioExcesoMinutos();
 	}
-	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<<(c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getLimiteMinutos() << "(" << c.getPrecio() << ") - " << c.getPrecio() + excesoMin << "€";
+	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<<(c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getLimiteMinutos() << "(" << c.getPrecio() << ") - " << c.getPrecio() + excesoMin << "$";
 
 	return s;
 }
 
 float ContratoTP::factura() const {
-	int excesoMin = minutosTP - minutosHablados;
+	float excesoMin = minutosTP - minutosHablados;
 	if (excesoMin > 0) {
 		excesoMin = 0;
 	}
