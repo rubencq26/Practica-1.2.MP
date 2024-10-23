@@ -25,7 +25,11 @@ ostream& operator<<(ostream& s, const ContratoTP& c) {
 	else {
 		excesoMin = abs(excesoMin) * c.getPrecioExcesoMinutos();
 	}
+<<<<<<< HEAD
 	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<<(c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getLimiteMinutos() << "(" << c.getPrecio() << ") - " << c.getPrecio() + excesoMin << "$";
+=======
+	s << c.getDniContrato() << " (" << c.getIdContrato() << " - "<<(c.getFechaContrato().getDia() < 10 ? "0" : "\0") << c.getFechaContrato().getDia() << " "<< (c.getFechaContrato().getMes() < 10 ? "0" : "\0") << meses[c.getFechaContrato().getMes() - 1] << " " << c.getFechaContrato().getAnio() << ") " << c.getMinutosHablados() << "m, " << c.getLimiteMinutos() << "(" << c.getPrecio() << ") - " << c.getPrecio() + excesoMin << "€";
+>>>>>>> 0aefb40b9accc89eb01732b2562798bb83418f69
 
 	return s;
 }
